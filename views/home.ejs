@@ -1,0 +1,26 @@
+
+<%- include("partials/header"); -%>
+<br></br>
+<a class="compose" id="newPostBtn" href="/compose">New Post</a>
+
+    <h1>Home</h1>
+    <p> <%= startingContent %> </p>
+    <hr>
+
+
+  <%  posts.forEach(function(post){ %>
+
+    <h1><%=post.title%></h1>
+    <p>
+    <%=post.content.substring(0, 100) + " ..."%>
+    <a href="/posts/<%=post._id%>">Read More</a>
+    </p>
+    <a class="edit" href="/edit/<%= post.id %>">Edit</a>
+    <a class="delete" href="/posts/delete/<%= post._id %>">Delete</a>
+    <hr>
+
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>
